@@ -1,0 +1,426 @@
+//HEADER
+header.site-header{
+    height: 60px;
+    background-color: $black;
+
+    @include md-max {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        background-color: transparent;
+    }
+
+    .container{
+        width: unset;
+        max-width: calc(100% - 100px);
+        height: 60px;
+        display: flex;
+        flex-direction: row;
+        align-items: end;
+
+        @include md {
+            max-width: calc(100% - 50px);
+        }
+
+        @include xs-max {
+            max-width: calc(100% - 25px);
+            height: 40px;
+        }
+
+        .custom-logo-link{
+            width: 96px;
+            display: block;
+            overflow: hidden;
+        }
+
+        .mobile-menu-button {           
+            font-size: 24px;
+            color: $white; 
+            padding: 0;
+            cursor: pointer;            
+            border: none;
+            background: none;
+            transition: transform 0.3s ease;
+
+            @include md {
+                display: none;
+            }
+        }
+
+        .main-navigation{
+            @include xs-max {
+                text-align: right;
+            }
+
+            .menu-global-menu-container{
+                float: right;
+                
+                @include xs-max {
+                    max-height: 0;
+                    position: absolute;
+                    right: 0;                    
+                    overflow: hidden;
+                    transition: max-height 0.4s ease;
+                }
+                
+                ul{
+                    li{
+                        margin-right: 18px;
+                        a{
+                            font-family: "roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+                            color: $white;
+                            font-size: 0.9375rem;
+                            letter-spacing: 0.025em;
+                            line-height: 1.8;
+                            text-transform: lowercase;
+                            @include transition(all ease-in-out 0.2s);
+
+                            @include xs-max {
+                                font-size: xx-large;
+                            }  
+
+                            &:hover, &:active, &:focus{
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.toggled{
+                .menu-global-menu-container {
+                    @include xs-max {
+                        max-height: 300px;
+                        transition: max-height 0.4s ease;
+                    }                     
+                }
+            }
+        }
+    }
+}
+
+
+//END HEADER
+
+// SITE FOOTER
+footer#footer{display: none;}
+
+footer.site-footer{
+    height: 60px;
+    background-color: $black;    
+
+    @include md-max {
+        width: 100%;
+        position: fixed;
+        bottom: 25px;
+        left: 0;
+        z-index: 10;
+        background-color: transparent;
+    }
+
+    .container{
+        height: 60px;
+        display: flex;
+        flex-direction: row;
+        color: $grey-8A;
+
+        @include lg  {
+            width: unset;
+            max-width: calc(100% - 100px);
+        }
+
+        @include lg-max  {
+            width: unset;
+            max-width: calc(100% - 50px);
+        }
+
+        @include md-max {
+            flex-direction: column;
+        }
+
+        .footer-widget{
+            font-family: $basefont;
+            color: $grey-8A;
+            font-size: 0.9375rem;
+            letter-spacing: 0.025em;
+            line-height: 1.8;
+
+            @include lg-max {
+                font-size: 0.875rem;
+
+                 &:nth-child(2){
+                    width: 31%;
+                }
+            }
+
+            @include md-max {
+                font-size: 0.875rem;
+
+                 &:nth-child(2){
+                    width: unset;
+                }
+            }
+
+            span{
+                padding: 0 10px;
+                @include lg-max {
+                    padding: 0 5px;
+                }
+            }
+            
+            a{
+                color: $grey-8A;
+            }
+        }
+    }
+}
+
+.page-template-elementor_header_footer footer.site-footer{
+    background-color: $white;
+
+     .container{
+        .footer-widget{
+            color: $black;
+        }
+
+        a{
+            color: $black;
+        }
+    }
+   
+}
+// END SITE FOOTER
+
+// PORTFOLIO SHOWCASE CAROUSEL
+
+.portfolio-showcase{
+    display: inline-flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0 0 25px 0;
+
+    @include md-max {
+        width: 100%;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    // PORTFOLIO BUTTON
+    .portfolio-button{
+        width: 64px;
+        height: 60px;
+        position: absolute;
+        top: 25%;
+        z-index: 5;
+        border: none;
+        background: transparent;
+
+         @include md-max {
+            display: none;
+        }
+
+        i{
+            color: rgba(255,255,255, 0.3);
+            font-size: 2rem;
+            @include transition(all ease-in-out 0.3s);
+        }
+
+        &:hover, &:active, &:focus{
+            cursor: pointer;
+            @include transition(all ease-in-out 0.3s);
+
+            i{
+                color: rgba(255,255,255, 1);                
+            }
+        }
+
+        &.button-previous{
+            left: 0;
+        }
+
+        &.button-next{
+            left: calc(100vw - 64px);;
+        }
+    }
+    // END PORTFOLIO BUTTON
+
+   .portfolio-track {
+        overflow-x: hidden;
+        display: flex;
+        scroll-behavior: smooth;
+
+        @include md-max {
+            overflow-x: unset;
+            flex-wrap: wrap;
+            flex-direction: column;
+        }
+    }
+
+    // CASE PROJECT
+    .case-project{
+        width:36.54843vw;
+        flex: 0 0 auto; 
+        
+        @include md-max {
+            width:100%;
+            height: 432px;
+        }
+
+        @include xs-max {
+            width:100%;
+            height: 211px;
+        }
+
+        // ADD OVERLAY ON VIDEOS
+        &:after{
+            width: 100%;
+            height: 100%;
+            content:'';
+            visibility: visible;
+            opacity: 1;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            background-color: rgba(0,0,0,0.4);
+            @include transition(all ease-in-out 0.1s);
+        }
+
+        // REMOVE OVERLAY ON VIDEOS ON HOVER
+        &:hover, &:active, &:focus{
+            @include transition(all ease-in-out 0.1s);
+            &:after{
+                visibility: hidden;
+                z-index: -1;
+                opacity: 0;
+            }
+        }
+
+        .portfolio-showcase-video{
+            width: 100%;
+
+            @include md-max {
+                height: 432px;
+            }
+
+            @include xs-max {
+                height: auto;
+            }
+        } 
+        
+        .case-content{
+            width: 100%;
+            padding: 70px 40px;
+
+            @include lg-max {
+                padding: unset;
+                margin-top: 2vw;
+                padding-left: 4.87203%;
+            }
+
+            @include md-max {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding-left: 4.87203%;
+                position: absolute;
+                bottom: 0;
+            }
+
+            @include xs-max {
+                padding: 0 25px;
+            }
+
+            h2, p{color: $white;}
+
+            h2{
+                color: $white;
+                font-size: 1.5vw;
+                font-weight: bold;
+
+                @include md-max {
+                    font-size: 7.03125vw;
+                }                
+            }
+
+            p{
+                font-family: $basefont;
+                color: $grey-4A;
+                font-size: 1.12vw;
+                line-height: 1.1;
+                margin-top: 0.5vw;
+
+                @include md-max {
+                    font-size: 3.38542vw;
+                    color: $white;
+                }
+            }
+
+            // PLAY / PAUSE BUTTON
+            .play-button,
+            .pause-button {
+                width: 50px;
+                height: 50px;
+                padding: 10px;               
+                color: $white;
+                cursor: pointer;
+                position: absolute;
+                left: 4.87203%;
+                bottom: 10%;
+                z-index: 2;
+                border:solid 5px $white;
+                background: transparent;
+                @include border-radius(50%);
+
+                @include lg {
+                    display: none;
+                }
+
+                @include xs-max {
+                    width: 30px;
+                    height: 30px;
+                    padding: unset;
+                    text-align: center;
+                    line-height: 25px;
+                    border:solid 2px $white;
+
+                    i{
+                        font-size: 0.875rem;
+                    }
+                }
+            }
+
+            .play-button:hover,
+            .pause-button:hover {
+                background: #333;
+            }
+            // END PLAY / PAUSE BUTTON
+        }
+    }
+    // END CASE PROJECT
+
+    .portfolio-progress-wrapper {
+        width: 25%;
+        height: 2px;
+        background-color: hsla(0, 0%, 100%, .2);        
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        overflow: hidden;
+    }
+
+    .portfolio-progress-bar {
+         width: 0%;
+        height: 100%;       
+        background-color: $white; /* white */
+        transition: width 0.3s ease;
+    }
+}
+
+// END PORTFOLIO SHOWCASE CAROUSEL

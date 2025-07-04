@@ -1,0 +1,43 @@
+.post, .page{
+    margin: 0; 
+    background-color: $white;   
+}
+
+.page-template-page-home{
+    background-color: $black;
+}
+
+
+
+section{
+    width: 100%;
+    position: relative;    
+}
+
+.container{
+    width: 100%;
+    @include md-max{
+        width: 100%;
+    }
+
+    @include lg-max{
+        width: 100%;
+    }
+
+    @include xl{
+        width: 1920px;
+    }
+}
+
+section#home{
+    height: calc(100vh - 120px);
+    background-color: $black;
+    display: flex;
+    align-items: center;
+
+    @include md-max {
+        height: unset;
+        align-items: unset;
+    }
+}
+
